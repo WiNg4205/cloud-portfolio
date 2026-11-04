@@ -11,6 +11,14 @@ terraform {
       version = "~> 3.6"
     }
   }
+  
+  backend "s3" {
+    bucket       = "tfstate-739275460055-apse2"
+    key          = "terraform-test/terraform.tfstate"
+    region       = "ap-southeast-2"
+    encrypt      = true
+    use_lockfile = true
+  }
 }
 
 provider "aws" {
